@@ -25,4 +25,12 @@ jobs:
       #   run: go version
 
       - name: Run tests
-        run: go test -cover ./... 
+        run: go test -cover ./...
+  
+  style:
+    name: Style
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Format style
+        run: test -z $(go fmt ./...)
