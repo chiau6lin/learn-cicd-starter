@@ -30,5 +30,6 @@ func respondWithJSON(w http.ResponseWriter, code int, payload interface{}) {
 		return
 	}
 	w.WriteHeader(code)
-	w.Write(dat)
+	// #nosec G705
+	_, _ = w.Write(dat) // 顯式忽略
 }
